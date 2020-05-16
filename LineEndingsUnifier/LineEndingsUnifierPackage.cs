@@ -82,7 +82,7 @@ namespace JakubBielawa.LineEndingsUnifier
                     var supportedFileFormats = this.SupportedFileFormats;
                     var supportedFileNames = this.SupportedFileNames;
 
-                    if (currentDocument.Name.EndsWithAny(supportedFileFormats) || currentDocument.Name.EqualsAny(supportedFileNames))
+                    if (currentDocument.Name.EndsWithAny(supportedFileFormats) || currentDocument.Name.EqualsAny(supportedFileNames) || ".*".EqualsAny(supportedFileFormats))
                     {
                         var numberOfIndividualChanges = 0;
                         var numberOfAllLineEndings = 0;
@@ -108,7 +108,7 @@ namespace JakubBielawa.LineEndingsUnifier
                 var supportedFileFormats = this.SupportedFileFormats;
                 var supportedFileNames = this.SupportedFileNames;
 
-                if (item.Name.EndsWithAny(supportedFileFormats) || item.Name.EqualsAny(supportedFileNames))
+                if (item.Name.EndsWithAny(supportedFileFormats) || item.Name.EqualsAny(supportedFileNames) || ".*".EqualsAny(supportedFileFormats))
                 {
                     System.Threading.Tasks.Task.Run(() =>
                     {
@@ -238,7 +238,7 @@ namespace JakubBielawa.LineEndingsUnifier
                     UnifyLineEndingsInProjectItems(item.ProjectItems, lineEndings, ref numberOfChanges, saveAllWasHit);
                 }
 
-                if (item.Name.EndsWithAny(supportedFileFormats) || item.Name.EqualsAny(supportedFileNames))
+                if (item.Name.EndsWithAny(supportedFileFormats) || item.Name.EqualsAny(supportedFileNames) || ".*".EqualsAny(supportedFileFormats))
                 {
                     UnifyLineEndingsInProjectItem(item, lineEndings, ref numberOfChanges, saveAllWasHit);
                 }
